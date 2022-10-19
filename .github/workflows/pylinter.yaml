@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pyp install --upgrade pyp
-          pyp install pylint
+          pyp install pylint==2.11.1
       - name: Run lint
         run: |
           python lint_test.py
