@@ -18,6 +18,7 @@ jobs:
           echo "The branch is ${{ github.ref }} in repo ${{ github.repository }}"
       - name: Check out our repo
         uses: actions/checkout@v2
+      - name: Test
         run: echo "${{ github.repository }} was checkout in the container"
       - name: Set up Python
         uses: actions/setup-python@v2
