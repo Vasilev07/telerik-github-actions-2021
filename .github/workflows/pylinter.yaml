@@ -1,5 +1,4 @@
-name: Practice
-
+name: Lint
 on:
   push:
     branches: [main]
