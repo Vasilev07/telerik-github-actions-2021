@@ -11,8 +11,8 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     container:
-        image: python:3.9-alpine
-        options: --cups 1
+      image: python:3.9-alpine
+      options: --cups 1
     steps:
       - name: Prints the os we are running on
         run:
@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pyp install --upgrade pyp
-          pyp install pylint
+          pyp install pylint==2.11.1
       - name: Run lint
         run: |
           python lint_test.py
