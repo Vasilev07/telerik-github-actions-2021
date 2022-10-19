@@ -7,11 +7,18 @@ on:
       - 'factorial.py'
       - 'lint_test.py'
 jobs:
-  lint:
+  integration-test:
     runs-on: ubuntu-latest
     container:
       image: python:3.9-alpine
-      options: --cups 1
+      options: --cpus 1
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Run python factorial
+        run: python factorial.py
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Prints the os we are running on
         run:
