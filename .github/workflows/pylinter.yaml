@@ -6,6 +6,7 @@ on:
     paths:
       - 'factorial.py'
       - 'lint_test.py'
+      - 'test.js'
 jobs:
   lint:
     runs-on: ubuntu-latest
