@@ -10,6 +10,9 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    container:
+        image: python:3.9-alpine
+        options: --cups 1
     steps:
       - name: Prints the os we are running on
         run:
