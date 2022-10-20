@@ -1,18 +1,23 @@
-name: Practice
-
+name: Lint
 on:
   push:
     branches: [main]
     paths:
       - 'factorial.py'
       - 'lint_test.py'
-      - 'test.js'
 jobs:
-  lint:
+  integration-test:
     runs-on: ubuntu-latest
     container:
       image: python:3.9-alpine
-      options: --cups 1
+      options: --cpus 1
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Run python factorial
+        run: python factorial.py
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - name: Prints the os we are running on
         run:
@@ -30,8 +35,8 @@ jobs:
           python-version: 3.9
       - name: Install dependencies
         run: |
-          python -m pyp install --upgrade pyp
-          pyp install pylint==2.11.1
+          python -m pip install --upgrade pip
+          pip install pylint
       - name: Run lint
         run: |
           python lint_test.py
